@@ -13,9 +13,14 @@ class Assets {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  final AssetGenImage logo = const AssetGenImage('assets/images/logo.png');
+  final AssetGenImage logoAndroid12 = const AssetGenImage(
+    'assets/images/logo_android12.png',
+  );
   final AssetGenImage onboarding = const AssetGenImage(
     'assets/images/onboarding.png',
   );
+  final AssetGenImage splash = const AssetGenImage('assets/images/splash.png');
 }
 
 class $AssetsSvgsGen {
@@ -146,7 +151,10 @@ class SvgGenImage {
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
       theme: theme,
+      color: color,
+      colorBlendMode: colorBlendMode,
       clipBehavior: clipBehavior,
+      cacheColorFilter: cacheColorFilter,
     );
   }
 
