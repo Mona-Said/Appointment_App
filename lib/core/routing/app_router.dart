@@ -1,6 +1,9 @@
+import 'package:appointment_app/core/di/dependency_injection.dart';
 import 'package:appointment_app/core/routing/routes.dart';
+import 'package:appointment_app/features/login/logic/login_cubit.dart';
 import 'package:appointment_app/features/login/ui/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/home/ui/screens/home_screen.dart';
 import '../../features/onboarding/ui/screens/onboarding_screen.dart';
@@ -11,7 +14,12 @@ class AppRouter {
       case Routes.onboardingScreen:
         return MaterialPageRoute(builder: (_) => OnboardingScreen());
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => LoginScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: LoginScreen(),
+          ),
+        );
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => HomeScreen());
       default:
